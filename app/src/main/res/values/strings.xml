@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">DescriptionBIN</string>
+    <string name="default_hint">0000 0000</string>
+    <string name="get_information">Get information</string>
+    <string name="show_history">Show history</string>
+    <string name="enter_the_first_digits_of_a_card_number_bin_iin">Enter the first digits of a card number (BIN/IIN)</string>
+
+<!--  fragment strings -->
+
+    <string name="scheme_network">SCHEME / NETWORK</string>
+    <string name="bank">BANK</string>
+    <string name="country">COUNTRY</string>
+    <string name="card_number">CARD NUMBER</string>
+    <string name="prepaid">PREPAID</string>
+    <string name="brand">BRAND</string>
+    <string name="type">TYPE</string>
+
+
+</resources>

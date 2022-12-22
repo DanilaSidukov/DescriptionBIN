@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/bin_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="0000 0000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_scheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/scheme_network"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="106dp"
+        android:text="Visa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/text_scheme"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_type"
+        style="@style/FragmentMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/type"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_scheme" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Debit"
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/scheme" />
+
+    <TextView
+        android:id="@+id/text_brand"
+        style="@style/FragmentMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brand"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_type" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="VISA/Dankort"
+        app:layout_constraintStart_toStartOf="@id/type"
+        app:layout_constraintTop_toBottomOf="@id/type" />
+
+    <TextView
+        android:id="@+id/text_prepaid"
+        style="@style/FragmentMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/prepaid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_brand" />
+
+    <TextView
+        android:id="@+id/prepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/brand"
+        app:layout_constraintTop_toBottomOf="@id/brand"
+        android:text="Yes"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/text_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_prepaid"
+        style="@style/FragmentMargin"
+        android:text="@string/card_number" />
+
+    <TextView
+        android:id="@+id/text_length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/prepaid"
+        app:layout_constraintTop_toBottomOf="@id/prepaid"
+        android:text="LENGTH"
+        android:textSize="8sp"
+        android:layout_marginTop="15dp" />
+    <TextView
+        android:id="@+id/length"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/text_length"
+        app:layout_constraintTop_toBottomOf="@id/text_length"
+        android:layout_marginTop="5dp"
+        android:text = "16" />
+    
+    <TextView
+        android:id="@+id/text_lunh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/text_length"
+        app:layout_constraintTop_toBottomOf="@id/prepaid"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:text="LUNH"
+        android:textSize="8sp" />
+    <TextView
+        android:id="@+id/lunh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/text_lunh"
+        app:layout_constraintTop_toBottomOf="@id/text_lunh"
+        android:layout_marginTop="5dp"
+        android:text="Yes" />
+    
+    <TextView
+        android:id="@+id/text_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_card_number"
+        style="@style/FragmentMargin"
+        android:layout_marginTop="35dp"
+        android:text="@string/country" />
+    
+    <TextView
+        android:id="@+id/country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/length"
+        app:layout_constraintTop_toBottomOf="@id/length"
+        android:layout_marginTop="23dp"
+        android:text="🇩🇰 Denmark" />
+    <TextView
+        android:id="@+id/coordinates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/country"
+        app:layout_constraintTop_toBottomOf="@id/country"
+        android:textSize="8sp"
+        android:layout_marginTop="5dp"
+        android:text="(latitude: 56, longitude: 10)" />
+
+    <TextView
+        android:id="@+id/text_bank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_country"
+        android:layout_marginTop="35dp"
+        android:text="@string/bank"
+        style="@style/FragmentMargin" />
+
+    <TextView
+        android:id="@+id/bank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/country"
+        app:layout_constraintTop_toBottomOf="@id/country"
+        android:layout_marginTop="35dp"
+        android:text="Jyske Bank, Hjørring" />
+    <TextView
+        android:id="@+id/bank_site"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/bank_name"
+        app:layout_constraintTop_toBottomOf="@id/bank_name"
+        android:text="www.jyskebank.dk"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:id="@+id/bank_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/bank_site"
+        app:layout_constraintTop_toBottomOf="@id/bank_site"
+        android:layout_marginTop="5dp"
+        android:text="+4589893300" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
