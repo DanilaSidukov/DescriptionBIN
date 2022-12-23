@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:layout_marginRight="106dp"
+        android:layout_marginRight="140dp"
         android:text="Visa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/text_scheme"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="VISA/Dankort"
-        app:layout_constraintStart_toStartOf="@id/type"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/type" />
 
     <TextView
@@ -87,7 +87,7 @@
         android:id="@+id/prepaid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/brand"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/brand"
         android:text="Yes"
         android:layout_marginTop="20dp" />
@@ -105,7 +105,7 @@
         android:id="@+id/text_length"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/prepaid"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/prepaid"
         android:text="LENGTH"
         android:textSize="8sp"
@@ -123,7 +123,7 @@
         android:id="@+id/text_lunh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/text_length"
+        app:layout_constraintStart_toEndOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/prepaid"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
@@ -152,7 +152,7 @@
         android:id="@+id/country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/length"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/length"
         android:layout_marginTop="23dp"
         android:text="🇩🇰 Denmark" />
@@ -160,9 +160,9 @@
         android:id="@+id/coordinates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/country"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/country"
-        android:textSize="8sp"
+        android:textSize="10sp"
         android:layout_marginTop="5dp"
         android:text="(latitude: 56, longitude: 10)" />
 
@@ -180,15 +180,17 @@
         android:id="@+id/bank_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/country"
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toBottomOf="@id/country"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="35dp"
         android:text="Jyske Bank, Hjørring" />
     <TextView
         android:id="@+id/bank_site"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/bank_name"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/bank_name"
         android:text="www.jyskebank.dk"
         android:layout_marginTop="5dp"/>
@@ -196,7 +198,7 @@
         android:id="@+id/bank_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/bank_site"
+        app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/bank_site"
         android:layout_marginTop="5dp"
         android:text="+4589893300" />
