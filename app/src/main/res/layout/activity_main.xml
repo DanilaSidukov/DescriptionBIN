@@ -6,10 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".descriptionbin.ui.MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bin_description_app"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
     <TextView
         android:id="@+id/start_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="17sp"
         android:text="@string/enter_the_first_digits_of_a_card_number_bin_iin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

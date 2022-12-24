@@ -14,6 +14,8 @@
     <string name="prepaid">PREPAID</string>
     <string name="brand">BRAND</string>
     <string name="type">TYPE</string>
+    <string name="bin_information">BIN Information</string>
+    <string name="bin_description_app">BIN Description App</string>
 
 
 </resources>

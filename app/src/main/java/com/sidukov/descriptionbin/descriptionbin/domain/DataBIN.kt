@@ -1,6 +1,9 @@
 package com.sidukov.descriptionbin.descriptionbin.domain
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import java.io.Serializable
 
 data class DataBIN(
     @SerializedName("bank")
@@ -12,9 +15,9 @@ data class DataBIN(
     @SerializedName("number")
     val number: Number,
     @SerializedName("prepaid")
-    val prepaid: String,
+    val prepaid: Boolean,
     @SerializedName("scheme")
     val scheme: String,
     @SerializedName("type")
-    val type: String
-)
+    val type: String,
+) : Serializable

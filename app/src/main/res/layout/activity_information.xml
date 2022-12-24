@@ -5,14 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bin_information"
+            android:layout_marginStart="40dp"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/bin_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="0000 0000"
-        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,16 +52,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="180dp"
         android:text="@string/scheme_network"
+        android:textAppearance="@style/TextGrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/scheme"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="178dp"
         android:layout_marginRight="140dp"
         android:text="Visa"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,11 +76,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/type"
+        android:textAppearance="@style/TextGrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_scheme" />
 
     <TextView
         android:id="@+id/type"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -62,11 +96,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/brand"
+        android:textAppearance="@style/TextGrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_type" />
 
     <TextView
         android:id="@+id/brand"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -80,129 +116,156 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/prepaid"
+        android:textAppearance="@style/TextGrey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_brand" />
 
     <TextView
         android:id="@+id/prepaid"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/brand"
+        android:layout_marginTop="20dp"
         android:text="Yes"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/brand" />
 
     <TextView
         android:id="@+id/text_card_number"
+        style="@style/FragmentMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/card_number"
+        android:textAppearance="@style/TextGrey"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_prepaid"
-        style="@style/FragmentMargin"
-        android:text="@string/card_number" />
+        app:layout_constraintTop_toBottomOf="@id/text_prepaid" />
 
     <TextView
         android:id="@+id/text_length"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/prepaid"
+        android:layout_marginTop="20dp"
         android:text="LENGTH"
-        android:textSize="8sp"
-        android:layout_marginTop="15dp" />
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/prepaid" />
+
     <TextView
+        style="@style/TextBlack"
+        android:textSize="14sp"
         android:id="@+id/length"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/text_length"
-        app:layout_constraintTop_toBottomOf="@id/text_length"
         android:layout_marginTop="5dp"
-        android:text = "16" />
-    
+        android:text="16"
+        app:layout_constraintStart_toStartOf="@id/text_length"
+        app:layout_constraintTop_toBottomOf="@id/text_length" />
+
     <TextView
         android:id="@+id/text_lunh"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/prepaid"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="LUNH"
-        android:textSize="8sp" />
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/prepaid" />
+
     <TextView
+        style="@style/TextBlack"
+        android:textSize="14sp"
         android:id="@+id/lunh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/text_lunh"
-        app:layout_constraintTop_toBottomOf="@id/text_lunh"
         android:layout_marginTop="5dp"
-        android:text="Yes" />
-    
+        android:text="Yes"
+        app:layout_constraintStart_toStartOf="@id/text_lunh"
+        app:layout_constraintTop_toBottomOf="@id/text_lunh" />
+
     <TextView
         android:id="@+id/text_country"
+        style="@style/FragmentMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_card_number"
-        style="@style/FragmentMargin"
         android:layout_marginTop="35dp"
-        android:text="@string/country" />
-    
+        android:text="@string/country"
+        android:textAppearance="@style/TextGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_card_number" />
+
     <TextView
         android:id="@+id/country"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="🇩🇰 Denmark"
         app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/length"
-        android:layout_marginTop="23dp"
-        android:text="🇩🇰 Denmark" />
+        app:layout_constraintTop_toBottomOf="@id/length" />
+
     <TextView
         android:id="@+id/coordinates"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/country"
-        android:textSize="10sp"
         android:layout_marginTop="5dp"
-        android:text="(latitude: 56, longitude: 10)" />
+        android:text="(latitude: 56, longitude: 10)"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/country" />
 
     <TextView
         android:id="@+id/text_bank"
+        style="@style/FragmentMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_country"
         android:layout_marginTop="35dp"
         android:text="@string/bank"
-        style="@style/FragmentMargin" />
+        android:textAppearance="@style/TextGrey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_country" />
 
     <TextView
         android:id="@+id/bank_name"
-        android:layout_width="wrap_content"
+        style="@style/TextBlack"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintTop_toBottomOf="@id/country"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="35dp"
-        android:text="Jyske Bank, Hjørring" />
+        android:layout_marginEnd="20dp"
+        android:text="Jyske Bank, Hjørrinsd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/scheme"
+        app:layout_constraintTop_toBottomOf="@id/country" />
+
     <TextView
         android:id="@+id/bank_site"
-        android:layout_width="wrap_content"
+        style="@style/TextBlack"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:text="www.jyskebank.dk"
         app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/bank_name"
-        android:text="www.jyskebank.dk"
-        android:layout_marginTop="5dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <TextView
         android:id="@+id/bank_number"
-        android:layout_width="wrap_content"
+        style="@style/TextBlack"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="5dp"
+        android:text="+4589893300"
         app:layout_constraintStart_toStartOf="@id/scheme"
         app:layout_constraintTop_toBottomOf="@id/bank_site"
-        android:layout_marginTop="5dp"
-        android:text="+4589893300" />
-
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
