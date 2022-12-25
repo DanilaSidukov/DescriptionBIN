@@ -36,11 +36,13 @@ class CardBINRepository(
         if (binAPI.isSuccessful) historyDao.insertData(
             EntityHistoryBIN(
                 bin = getSplitStringBIN(argumentBin),
-                country = binAPI.body()?.country?.name.toString(),
-                bank = binAPI.body()?.bank?.name.toString(),
+                country = binAPI.body()?.country?.name ?: "No Data",
+                bank = binAPI.body()?.bank?.name ?: "No Data",
                 time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM HH:mm"))
             )
         )
+
+        println(binAPI.body())
 
         return ApiResponse(
             data = if (binAPI.isSuccessful) binAPI.body()!! else null,
