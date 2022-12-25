@@ -1,9 +1,12 @@
 package com.sidukov.descriptionbin.descriptionbin.ui
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sidukov.descriptionbin.descriptionbin.data.CardBINRepository
 import com.sidukov.descriptionbin.descriptionbin.domain.DataBIN
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
@@ -18,11 +21,9 @@ class CardBINViewModel(
     private val _error = MutableSharedFlow<String>()
     var error = _error.asSharedFlow()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun requestBinData(binString: String) {
-        viewModelScope.launch {
-//            with(repository.getData(binString)){
-//                _dataBIN.emit(this)
-//            }
+        viewModelScope.launch(Dispatchers.IO) {
             with(repository.getData(binString)) {
                 if (data == null) {
                     _error.emit(error ?: "Unknown error!")

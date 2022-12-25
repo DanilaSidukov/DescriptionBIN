@@ -1,16 +1,19 @@
 package com.sidukov.descriptionbin.descriptionbin.ui
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.lifecycleScope
 import com.redmadrobot.inputmask.MaskedTextChangedListener
 import com.sidukov.descriptionbin.databinding.ActivityMainBinding
+import com.sidukov.descriptionbin.descriptionbin.BINApplication
 import com.sidukov.descriptionbin.descriptionbin.data.CardBINRepository
+import com.sidukov.descriptionbin.descriptionbin.data.local.BinHistoryDao
 import com.sidukov.descriptionbin.descriptionbin.data.remote.APIClient
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var cardBINViewModel: CardBINViewModel
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -26,15 +30,17 @@ class MainActivity : AppCompatActivity() {
 
         cardBINViewModel = CardBINViewModel(
             CardBINRepository(
-                APIClient.binApiClient
+                APIClient.binApiClient,
+                BINApplication.database.daoHistoryBIN()
             )
         )
 
         val textBIN = Intent(this@MainActivity, InformationActivity::class.java)
+        println("input = $textBIN")
 
         lifecycleScope.launch {
             cardBINViewModel.dataBIN.collect { DataBIN ->
-                println(DataBIN)
+                println("DATA BIN = $DataBIN")
                 if (DataBIN != null){
                     runOnUiThread {
                         textBIN.putExtra ("dataBIN", DataBIN)
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch{
             cardBINViewModel.error.collect{ errorString ->
                 runOnUiThread {
-                    println(errorString)
+                    println("Error = $errorString")
                     Toast.makeText(this@MainActivity, "Error: $errorString\nInput another BIN", Toast.LENGTH_SHORT).show()
                 }
             }

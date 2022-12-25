@@ -4,13 +4,9 @@ import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.sidukov.descriptionbin.databinding.ActivityInformationBinding
-import com.sidukov.descriptionbin.descriptionbin.data.CardBINRepository
-import com.sidukov.descriptionbin.descriptionbin.data.remote.APIClient
 import com.sidukov.descriptionbin.descriptionbin.data.toResponseString
 import com.sidukov.descriptionbin.descriptionbin.domain.DataBIN
-import kotlinx.coroutines.launch
 import java.util.*
 
 class InformationActivity : AppCompatActivity() {
@@ -34,17 +30,17 @@ class InformationActivity : AppCompatActivity() {
 
         binding.binNumber.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.binNumber.text = getSplitStringBIN(argumentsTextBIN.toString())
-        binding.scheme.text = argumentsDataBIN.scheme.capitalize (Locale.ROOT) ?: "Not Data"
-        binding.type.text = argumentsDataBIN.type.capitalize(Locale.ROOT) ?: "Not Data"
-        binding.brand.text = argumentsDataBIN.brand ?: "Not Data"
-        binding.prepaid.text = argumentsDataBIN.prepaid.toResponseString()?: "Not Data"
-        binding.length.text = argumentsDataBIN.number.length.toString() ?: "Not Data"
-        binding.lunh.text = argumentsDataBIN.number.luhn.toResponseString() ?: "Not Data"
-        binding.country.text = argumentsDataBIN.country.emoji + " ${argumentsDataBIN.country.name}" ?: "Not Data"
-        binding.coordinates.text = "(latitude: ${argumentsDataBIN.country.latitude}, longitude: ${argumentsDataBIN.country.longitude})" ?: "Not Data"
-        binding.bankName.text = if (argumentsDataBIN.bank.name != null) "${argumentsDataBIN.bank.name}" else "Not Data"
-        binding.bankSite.text = argumentsDataBIN.bank.url ?: "Not Data"
-        binding.bankNumber.text = argumentsDataBIN.bank.phone ?: "Not Data"
+        binding.scheme.text = argumentsDataBIN.scheme.capitalize (Locale.ROOT) ?: "No Data"
+        binding.type.text = if (argumentsDataBIN.type != null) argumentsDataBIN.type.capitalize(Locale.ROOT) else "No Data"
+        binding.brand.text = argumentsDataBIN.brand ?: "No Data"
+        binding.prepaid.text = argumentsDataBIN.prepaid.toResponseString()?: "No Data"
+        binding.length.text = argumentsDataBIN.number.length.toString() ?: "No Data"
+        binding.lunh.text = argumentsDataBIN.number.luhn.toResponseString() ?: "No Data"
+        binding.country.text = argumentsDataBIN.country.emoji + " ${argumentsDataBIN.country.name}" ?: "No Data"
+        binding.coordinates.text = "(latitude: ${argumentsDataBIN.country.latitude}, longitude: ${argumentsDataBIN.country.longitude})" ?: "No Data"
+        binding.bankName.text = if (argumentsDataBIN.bank.name != null) "${argumentsDataBIN.bank.name}" else "No Data"
+        binding.bankSite.text = argumentsDataBIN.bank.url ?: "No Data"
+        binding.bankNumber.text = argumentsDataBIN.bank.phone ?: "No Data"
 
         binding.imageBack.setOnClickListener {
             finish()
@@ -53,22 +49,24 @@ class InformationActivity : AppCompatActivity() {
 
     private fun bind() = with(binding) {
 
-
     }
-
-    private fun getSplitStringBIN(stringBIN: String): String {
-        var tempStringBIN = " "
-        var count = 0
-        val stringChar = stringBIN.toCharArray()
-        for (char in stringChar) {
-            if (count == 4) {
-                tempStringBIN += " $char"
-                count = 0
-            } else {
-                tempStringBIN += char
-                count += 1
-            }
+}
+fun getSplitStringBIN(stringBIN: String): String {
+    var tempStringBIN = " "
+    var count = 0
+    val stringChar = stringBIN.toCharArray()
+    for (char in stringChar) {
+        if (count == 4) {
+            tempStringBIN += " $char"
+            count = 0
+        } else {
+            tempStringBIN += char
+            count += 1
         }
-        return tempStringBIN
     }
+    return tempStringBIN
+}
+
+fun checkOnNull(string: String?): String{
+    return string ?: "No Data"
 }

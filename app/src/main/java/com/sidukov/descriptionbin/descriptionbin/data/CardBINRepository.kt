@@ -1,23 +1,22 @@
 package com.sidukov.descriptionbin.descriptionbin.data
 
-import androidx.core.text.htmlEncode
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.sidukov.descriptionbin.descriptionbin.data.remote.APIClient
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.sidukov.descriptionbin.descriptionbin.data.local.BinHistoryDao
+import com.sidukov.descriptionbin.descriptionbin.data.local.EntityHistoryBIN
 import com.sidukov.descriptionbin.descriptionbin.data.remote.BINAPI
 import com.sidukov.descriptionbin.descriptionbin.domain.DataBIN
-import com.sidukov.descriptionbin.descriptionbin.ui.MainActivity
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import kotlin.reflect.typeOf
+import com.sidukov.descriptionbin.descriptionbin.ui.getSplitStringBIN
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CardBINRepository(
-    private val binAPI: BINAPI
+    private val binAPI: BINAPI,
+    private val historyDao: BinHistoryDao
 ) {
 
-    suspend fun getData(argumentBin: String): ApiResponse <DataBIN> {
+    @RequiresApi(Build.VERSION_CODES.O)
+    suspend fun getData(argumentBin: String): ApiResponse<DataBIN> {
 
         //"45132341"
 
@@ -34,13 +33,25 @@ class CardBINRepository(
             jsonObject = binAPI.errorBody()!!.charStream().toString()
         }
 
-        println("JSONOBJ = $jsonObject")
+        if (binAPI.isSuccessful) historyDao.insertData(
+            EntityHistoryBIN(
+                bin = getSplitStringBIN(argumentBin),
+                country = binAPI.body()?.country?.name.toString(),
+                bank = binAPI.body()?.bank?.name.toString(),
+                time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM HH:mm"))
+            )
+        )
 
         return ApiResponse(
             data = if (binAPI.isSuccessful) binAPI.body()!! else null,
             error = if (binAPI.isSuccessful) null else jsonObject
         )
     }
+
+    suspend fun getBinHistory() = historyDao.getAll()
+
+    suspend fun deleteBinHistory() = historyDao.deleteData(getBinHistory())
+
 }
 
 class ApiResponse<T>(val data: T?, val error: String?)
