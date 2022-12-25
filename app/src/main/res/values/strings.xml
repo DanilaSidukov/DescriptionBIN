@@ -18,6 +18,7 @@
     <string name="bin_description_app">BIN Description App</string>
     <string name="bin_history">BIN History</string>
     <string name="history_is_empty">History is empty</string>
+    <string name="clear_history">Clear History</string>
 
 
 </resources>
