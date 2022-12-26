@@ -2,23 +2,21 @@ package com.sidukov.descriptionbin.descriptionbin
 
 import android.app.Application
 import androidx.room.Room
-import com.sidukov.descriptionbin.descriptionbin.data.local.DatabaseHistoryBIN
+import com.sidukov.descriptionbin.descriptionbin.data.local.DatabaseHistoryBin
 
-class BINApplication : Application() {
+class BinApplication : Application() {
 
     companion object {
-        lateinit var database: DatabaseHistoryBIN
+        lateinit var database: DatabaseHistoryBin
     }
 
     override fun onCreate() {
         super.onCreate()
         database = Room.databaseBuilder(
             applicationContext,
-            DatabaseHistoryBIN::class.java,
+            DatabaseHistoryBin::class.java,
             "history-list"
         ).build()
     }
-
-
 
 }

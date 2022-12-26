@@ -6,10 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sidukov.descriptionbin.R
-import com.sidukov.descriptionbin.descriptionbin.data.History
-import com.sidukov.descriptionbin.descriptionbin.data.local.EntityHistoryBIN
+import com.sidukov.descriptionbin.descriptionbin.data.local.EntityHistoryBin
 
-class HistoryItemAdapter(private var list: List<EntityHistoryBIN>) :
+class HistoryItemAdapter(private var list: List<EntityHistoryBin>) :
     RecyclerView.Adapter<HistoryItemAdapter.HistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
@@ -21,16 +20,16 @@ class HistoryItemAdapter(private var list: List<EntityHistoryBIN>) :
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         holder.card.text = list[position].bin
-        holder.country.text = list[position].country ?: "No data"
-        holder.bank.text = list[position].bank ?: "No data"
-        holder.time.text = list[position].time ?: "No data"
+        holder.country.text = list[position].country
+        holder.bank.text = list[position].bank
+        holder.time.text = list[position].time
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
 
-    fun updateList(newList: List<EntityHistoryBIN>) {
+    fun updateList(newList: List<EntityHistoryBin>) {
         list = newList
         notifyDataSetChanged()
     }

@@ -7,12 +7,12 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sidukov.descriptionbin.databinding.ActivityHistoryBinding
-import com.sidukov.descriptionbin.descriptionbin.BINApplication
-import com.sidukov.descriptionbin.descriptionbin.data.CardBINRepository
+import com.sidukov.descriptionbin.descriptionbin.BinApplication
+import com.sidukov.descriptionbin.descriptionbin.data.CardBinRepository
 import com.sidukov.descriptionbin.descriptionbin.data.remote.APIClient
 import kotlinx.coroutines.launch
 
-class HistoryActivity: AppCompatActivity() {
+class HistoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHistoryBinding
 
@@ -25,9 +25,9 @@ class HistoryActivity: AppCompatActivity() {
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         historyBINViewModel = HistoryViewModel(
-            CardBINRepository(
+            CardBinRepository(
                 APIClient.binApiClient,
-                BINApplication.database.daoHistoryBIN()
+                BinApplication.database.daoHistoryBin()
             )
         )
 
@@ -36,7 +36,7 @@ class HistoryActivity: AppCompatActivity() {
         binding.requestHistoryRecyclerView.adapter = historyAdapter
         binding.requestHistoryRecyclerView.addItemDecoration(EmptyDividerItemDecoration())
 
-        binding.imageBack.setOnClickListener{
+        binding.imageBack.setOnClickListener {
             finish()
         }
 
@@ -48,14 +48,12 @@ class HistoryActivity: AppCompatActivity() {
         lifecycleScope.launch {
             historyBINViewModel.shouldShowNoHistoryText.collect {
                 binding.historyEmptyOrNot.isVisible = it
-                println("Visibility gone $it")
             }
         }
-        lifecycleScope.launch{
+        lifecycleScope.launch {
             historyBINViewModel.historyData.collect { listHistory ->
                 if (listHistory.isEmpty()) return@collect
                 historyAdapter.updateList(listHistory)
-                println("List History -  $listHistory")
             }
         }
     }

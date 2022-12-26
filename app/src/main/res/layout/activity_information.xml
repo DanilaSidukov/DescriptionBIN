@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/background_grey"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_grey">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar_information"
@@ -24,11 +23,11 @@
             android:src="@drawable/ic_back" />
 
         <TextView
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/bin_information"
+            android:layout_gravity="center"
             android:layout_marginStart="40dp"
+            android:text="@string/bin_information"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -154,13 +153,13 @@
         app:layout_constraintTop_toBottomOf="@id/prepaid" />
 
     <TextView
-        style="@style/TextBlack"
-        android:textSize="14sp"
         android:id="@+id/length"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="16"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/text_length"
         app:layout_constraintTop_toBottomOf="@id/text_length" />
 
@@ -178,13 +177,13 @@
         app:layout_constraintTop_toBottomOf="@id/prepaid" />
 
     <TextView
-        style="@style/TextBlack"
-        android:textSize="14sp"
         android:id="@+id/lunh"
+        style="@style/TextBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Yes"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/text_lunh"
         app:layout_constraintTop_toBottomOf="@id/text_lunh" />
 
@@ -249,24 +248,24 @@
         style="@style/TextBlack"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:text="www.jyskebank.dk"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/bank_name"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/bank_name" />
 
     <TextView
         android:id="@+id/bank_number"
         style="@style/TextBlack"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:text="+4589893300"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/scheme"
-        app:layout_constraintTop_toBottomOf="@id/bank_site"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/bank_site" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,17 +4,17 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
-
 
 @Dao
 interface BinHistoryDao {
+
     @Query("SELECT * FROM entityhistorybin")
-    suspend fun getAll(): List<EntityHistoryBIN>
+    suspend fun getAll(): List<EntityHistoryBin>
 
     @Insert
-    suspend fun insertData(historyData: EntityHistoryBIN)
+    suspend fun insertData(historyData: EntityHistoryBin)
 
     @Delete
-    suspend fun deleteData (historyData: List<EntityHistoryBIN>)
+    suspend fun deleteData(historyData: List<EntityHistoryBin>)
+
 }
